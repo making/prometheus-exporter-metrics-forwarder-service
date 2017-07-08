@@ -114,7 +114,7 @@
               "legendFormat": "Longest Uptime",
               "metric": "spring_uptime",
               "refId": "A",
-              "step": 600
+              "step": 240
             }
           ],
           "thresholds": "",
@@ -194,7 +194,7 @@
               "legendFormat": "Shortest Uptime",
               "metric": "spring_uptime",
               "refId": "A",
-              "step": 600
+              "step": 240
             }
           ],
           "thresholds": "",
@@ -274,7 +274,7 @@
               "legendFormat": "",
               "metric": "spring_systemload_average",
               "refId": "A",
-              "step": 600
+              "step": 240
             }
           ],
           "thresholds": "1,10",
@@ -354,7 +354,7 @@
               "legendFormat": "",
               "metric": "go_memstats_alloc_bytes",
               "refId": "A",
-              "step": 600
+              "step": 240
             }
           ],
           "thresholds": "1,10",
@@ -434,7 +434,7 @@
               "intervalFactor": 2,
               "legendFormat": "Total",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "avg(spring_mem{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"} -\n spring_mem_free{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"})",
@@ -443,7 +443,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used",
               "refId": "B",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -523,7 +523,7 @@
               "intervalFactor": 2,
               "legendFormat": "Total/{{ application_id }}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_mem{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"} -\n spring_mem_free{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -532,7 +532,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used/{{ application_id }}/{{ application_instance_index }}",
               "refId": "B",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -636,7 +636,7 @@
               "intervalFactor": 2,
               "legendFormat": "Init",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "avg(spring_heap_committed{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"})",
@@ -645,7 +645,7 @@
               "intervalFactor": 2,
               "legendFormat": "Committed",
               "refId": "B",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "avg(spring_heap_used{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"})",
@@ -654,7 +654,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used",
               "refId": "C",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -733,7 +733,7 @@
               "intervalFactor": 2,
               "legendFormat": "Init/{{application_id}}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_heap_committed{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -742,7 +742,7 @@
               "intervalFactor": 2,
               "legendFormat": "Committed/{{application_id}}/{{ application_instance_index }}",
               "refId": "B",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_heap_used{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -751,7 +751,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used/{{application_id}}/{{ application_instance_index }}",
               "refId": "C",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -855,7 +855,7 @@
               "intervalFactor": 2,
               "legendFormat": "Init",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "avg(spring_nonheap_committed{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"})",
@@ -864,7 +864,7 @@
               "intervalFactor": 2,
               "legendFormat": "Committed",
               "refId": "B",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "avg(spring_nonheap_used{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"})",
@@ -873,7 +873,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used",
               "refId": "C",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -952,7 +952,7 @@
               "intervalFactor": 2,
               "legendFormat": "Init/{{application_id}}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_nonheap_commiited{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -961,7 +961,7 @@
               "intervalFactor": 2,
               "legendFormat": "Commited/{{application_id}}/{{ application_instance_index }}",
               "refId": "B",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_nonheap_used{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -970,7 +970,7 @@
               "intervalFactor": 2,
               "legendFormat": "Used/{{application_id}}/{{ application_instance_index }}",
               "refId": "C",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1074,7 +1074,7 @@
               "intervalFactor": 2,
               "legendFormat": "Total",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "avg(spring_threads_daemon{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"})",
@@ -1083,7 +1083,7 @@
               "intervalFactor": 2,
               "legendFormat": "Daemon",
               "refId": "B",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1163,7 +1163,7 @@
               "intervalFactor": 2,
               "legendFormat": "Total/{{ application_id }}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_threads_daemon{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -1172,7 +1172,7 @@
               "intervalFactor": 2,
               "legendFormat": "Daemon/{{ application_id }}/{{ application_instance_index }}",
               "refId": "B",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1277,7 +1277,7 @@
               "legendFormat": "{{ application_id }}/{{ application_instance_index }}",
               "metric": "spring_classes",
               "refId": "A",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1357,7 +1357,7 @@
               "intervalFactor": 2,
               "legendFormat": "Loaded/{{ application_id }}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             },
             {
               "expr": "spring_classes_unloaded{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
@@ -1366,7 +1366,7 @@
               "intervalFactor": 2,
               "legendFormat": "Unloaded/{{ application_id }}/{{ application_instance_index }}",
               "refId": "B",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1471,7 +1471,7 @@
               "legendFormat": "{{application_id}}/{{ application_instance_index }}",
               "metric": "",
               "refId": "A",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1551,7 +1551,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{ application_id }}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1656,7 +1656,7 @@
               "legendFormat": "{{application_id}}/{{ application_instance_index }}",
               "metric": "",
               "refId": "A",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1736,7 +1736,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{ application_id }}/{{ application_instance_index }}",
               "refId": "A",
-              "step": 40
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -1782,6 +1782,176 @@
       "repeatRowId": null,
       "showTitle": false,
       "title": "MarkSweep GC Spent Time",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": "200",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_CF-PROM}",
+          "fill": 1,
+          "id": 21,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "spring_datasource_primary_active{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{ application_id }}/{{ application_instance_index }}",
+              "metric": "spring_datasource_primary_active",
+              "refId": "A",
+              "step": 20
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Active Primary DataSource",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transparent": true,
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_CF-PROM}",
+          "fill": 1,
+          "id": 22,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "spring_datasource_primary_usage{job=~\"$job\",application_id=~\"$application_id\",application_instance_index=~\"$application_instance_index\",application_instance_id=~\"$application_instance_id\"}",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{ application_id }}/{{ application_instance_index }}",
+              "metric": "spring_datasource_primary_usage",
+              "refId": "A",
+              "step": 20
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Primary DataSource Usage",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transparent": true,
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
       "titleSize": "h6"
     }
   ],
@@ -1875,7 +2045,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -1905,5 +2075,5 @@
   },
   "timezone": "browser",
   "title": "Spring Boot Actuator Metrics",
-  "version": 22
+  "version": 24
 }
