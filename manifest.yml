@@ -1,0 +1,11 @@
+applications:
+- name: prom-exporter-metrics-forwarder
+  #buildpack: java_buildpack
+  buildpack: java_buildpack_offline
+  path: target/prometheus-exporter-metrics-forwarder-service-0.0.1-SNAPSHOT.jar
+  memory: 1g
+  services:
+  - metrics-db # cf create-service p-mysql 100mb-dev metrics-db
+  env:
+#    metric-forwarder-service.external-url: https://prom-exporter-metrics-forwarder.cfapps.io
+    metric-forwarder-service.external-url: https://prom-exporter-metrics-forwarder.cfapps.pez.pivotal.io

@@ -1,0 +1,45 @@
+{
+  "services": [
+    {
+      "id": "b6262252-7b1a-4063-8608-51ee17e3e09f",
+      "name": "prometheus-exporter-metrics-forwarder",
+      "description": "Prometheus Exporter Metrics Forwarder Service",
+      "bindable": true,
+      "planUpdateable": false,
+      "requires": [],
+      "tags": [
+        "metrics-forwarder"
+      ],
+      "metadata": {
+        "displayName": "Prometheus Exporter Metrics Forwarder Service",
+        "documentationUrl": "https://twitter.com/making",
+        "imageUrl": "https://avatars0.githubusercontent.com/u/19211531",
+        "longDescription": "Prometheus Exporter Metrics Forwarder Service",
+        "providerDisplayName": "@making",
+        "supportUrl": "https://twitter.com/making"
+      },
+      "plans": [
+        {
+          "id": "dc8b4ff3-b14e-4bdf-a9e4-06d54b3bc650",
+          "name": "standard",
+          "description": "Standard",
+          "free": true,
+          "metadata": {
+            "displayName": "Standard",
+            "bullets": [
+              "Standard"
+            ],
+            "costs": [
+              {
+                "amount": {
+                  "usd": 0
+                },
+                "unit": "MONTHLY"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
