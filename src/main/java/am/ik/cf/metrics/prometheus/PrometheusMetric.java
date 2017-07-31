@@ -16,8 +16,7 @@ public class PrometheusMetric {
 		this.metric = metric;
 	}
 
-	@Override
-	public String toString() {
+	public String toString(String applicationName) {
 		StringBuilder builder = new StringBuilder();
 		String metricName = this.metric.metricName();
 		builder.append(metricName) //
@@ -29,6 +28,9 @@ public class PrometheusMetric {
 				.append("\",") //
 				.append("application_instance_id=\"") //
 				.append(applicationInstanceId) //
+				.append("\",") //
+				.append("application_name=\"") //
+				.append(applicationName) //
 				.append("\",") //
 				.append("} ") //
 				.append(this.metric.getValue());

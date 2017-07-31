@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -18,9 +20,12 @@ import am.ik.cf.metrics.forwarder.Type;
 @Repository
 public class PrometheusMetricRepository {
 	private final NamedParameterJdbcTemplate jdbcTemplate;
+	private final Cache cache;
 
-	public PrometheusMetricRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+	public PrometheusMetricRepository(NamedParameterJdbcTemplate jdbcTemplate,
+			CacheManager cacheManager) {
 		this.jdbcTemplate = jdbcTemplate;
+		this.cache = cacheManager.getCache("cf-applications");
 	}
 
 	@Transactional
@@ -47,7 +52,7 @@ public class PrometheusMetricRepository {
 	public PrometheusMetrics findBySpaceId(String spaceId) {
 		SqlParameterSource parameterSource = new MapSqlParameterSource()
 				.addValue("space_id", spaceId);
-		return new PrometheusMetrics(jdbcTemplate.query(
+		List<PrometheusMetric> metrics = jdbcTemplate.query(
 				"SELECT `name`, `timestamp`, `type`, `unit`, `value`, `application_id`, `application_instance_index`, `application_instance_id`, `space_id` FROM metric WHERE space_id = :space_id ORDER BY `name`, `application_id`, `application_instance_index`",
 				parameterSource, (rs, rowNum) -> {
 					Metric metric = new Metric(rs.getString("name"),
@@ -57,7 +62,8 @@ public class PrometheusMetricRepository {
 					return new PrometheusMetric(rs.getString("application_id"),
 							rs.getString("application_instance_index"),
 							rs.getString("application_instance_id"), metric);
-				}));
+				});
+		return new PrometheusMetrics(metrics, cache);
 	}
 
 	@Transactional

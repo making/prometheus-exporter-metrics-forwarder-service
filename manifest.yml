@@ -9,3 +9,7 @@ applications:
   env:
 #    metric-forwarder-service.external-url: https://prom-exporter-metrics-forwarder.cfapps.io
     metric-forwarder-service.external-url: https://prom-exporter-metrics-forwarder.cfapps.pez.pivotal.io
+#    cf.api-host:
+#    cf.skip-ssl-validation:
+#    cf.username:
+#    cf.password:
