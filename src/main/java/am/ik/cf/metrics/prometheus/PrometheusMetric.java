@@ -31,10 +31,12 @@ public class PrometheusMetric {
 				.append(applicationInstanceId) //
 				.append("\",") //
 				.append("} ") //
-				.append(this.metric.getValue()) //
-				.append(" ") //
-				.append(this.metric.getTimestamp()) //
-				.append(System.lineSeparator());
+				.append(this.metric.getValue());
+		if (!metric.getName().startsWith("counter.")) {
+			builder.append(" ") //
+					.append(this.metric.getTimestamp());
+		}
+		builder.append(System.lineSeparator());
 		return builder.toString();
 	}
 }
