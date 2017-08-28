@@ -1,14 +1,13 @@
 applications:
-- name: prom-exporter-metrics-forwarder
-  #buildpack: java_buildpack
-  buildpack: java_buildpack_offline
+- name: metrics-forwarder
+  buildpack: https://github.com/cloudfoundry/java-buildpack#v3.19
   path: target/prometheus-exporter-metrics-forwarder-service-0.0.1-SNAPSHOT.jar
-  memory: 1g
+  memory: 512m
   services:
   - metrics-db # cf create-service p-mysql 100mb-dev metrics-db
   env:
 #    metric-forwarder-service.external-url: https://prom-exporter-metrics-forwarder.cfapps.io
-    metric-forwarder-service.external-url: https://prom-exporter-metrics-forwarder.cfapps.pez.pivotal.io
+    metric-forwarder-service.external-url: https://metrics-forwarder.cfapps.pez.pivotal.io
 #    cf.api-host:
 #    cf.skip-ssl-validation:
 #    cf.username:
